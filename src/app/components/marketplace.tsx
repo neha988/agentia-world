@@ -2,6 +2,8 @@
 import React, { useState } from "react";
 import { ButtonCustom } from "./ui/button-custom";
 import { Search, Star, ChevronDown, ArrowRight } from "lucide-react";
+import { Listbox } from "@headlessui/react";
+
 
 // Mock data for AI Agents
 const agents = [
@@ -74,7 +76,7 @@ const categories = [
 
 const Marketplace = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("All Categories");
+  const [selectedCategory, setSelectedCategory] = useState(categories[0]);
 
   // Filter agents based on search term and category
   const filteredAgents = agents.filter((agent) => {
@@ -90,11 +92,12 @@ const Marketplace = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 max-w-3xl mx-auto">
           <div className="flex justify-center">
-            <div className="inline-block glass-card px-4 py-2 rounded-full mb-4">
-              <span className="text-xs font-medium text-gradient-blue-purple">
-                AI Agent Marketplace
-              </span>
-            </div>
+            
+            <div className="inline-block glass-card px-4 py-2 rounded-full animate-fade-in mb-4 w-58">
+          <span className="text-lg font-medium bg-clip-text text-transparent bg-gradient-to-r from-agentia-teal-light to-agentia-green-light">
+          AI Agent Marketplace
+          </span>
+        </div>
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Discover the Perfect AI Agents for Your Business
@@ -116,20 +119,39 @@ const Marketplace = () => {
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
             </div>
-            <div className="relative glass-card rounded-xl">
-              <select
-                className="appearance-none w-full py-3 px-4 bg-transparent text-white pr-10 focus:outline-none cursor-pointer"
-                value={selectedCategory}
-                onChange={(e) => setSelectedCategory(e.target.value)}
-              >
-                {categories.map((category) => (
-                  <option key={category} value={category} className="bg-agentia-dark-800">
-                    {category}
-                  </option>
-                ))}
-              </select>
-              <ChevronDown className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white/50 pointer-events-none" />
-            </div>
+
+<div className="relative w-48">
+  <button
+    onClick={() => document.getElementById('category-dropdown')?.classList.toggle('hidden')}
+    className="w-full py-3 px-4 bg-teal-600 text-white text-left rounded-lg flex justify-between items-center border border-gray-500 focus:outline-none"
+  >
+    {selectedCategory}
+    <ChevronDown className="w-5 h-5 text-white" />
+  </button>
+
+  <div 
+    id="category-dropdown"
+    className="hidden absolute left-0 right-0 mt-1 bg-black text-white rounded-lg shadow-lg z-50 max-h-60 overflow-y-auto border border-gray-700"
+  >
+    {categories.map((category) => (
+      <button
+        key={category}
+        onClick={() => {
+          setSelectedCategory(category);
+          document.getElementById('category-dropdown')?.classList.add('hidden');
+        }}
+        className="w-full text-left cursor-pointer px-4 py-2 hover:bg-teal-600 hover:text-white transition-colors"
+      >
+        {category}
+      </button>
+    ))}
+  </div>
+</div>
+
+
+
+
+
           </div>
         </div>
 
@@ -146,7 +168,7 @@ const Marketplace = () => {
                   className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-agentia-dark to-transparent opacity-60"></div>
-                <div className="absolute bottom-4 left-4 glass px-2 py-1 rounded-md text-xs font-medium">
+                <div className="absolute bottom-4 left-4 glass px-2 py-1 rounded-md text-xs font-medium text-white">
                   {agent.category}
                 </div>
               </div>

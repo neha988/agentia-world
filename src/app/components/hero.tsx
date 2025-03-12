@@ -42,8 +42,8 @@ const Hero = () => {
       <div className="absolute left-1/3 bottom-40 w-24 h-24 glass-card rounded-2xl rotate-45 opacity-60 animate-float" style={{animationDelay: '2s'}} data-parallax="0.2"></div>
 
       <div className="container mx-auto px-4 z-10 text-center">
-        <div className="inline-block glass-card px-4 py-2 rounded-full animate-fade-in">
-          <span className="text-xs font-medium bg-clip-text text-transparent bg-gradient-to-r from-agentia-teal-light to-agentia-green-light">
+        <div className="inline-block glass-card px-4 py-2 rounded-full animate-fade-in mt-10">
+          <span className="text-xs font-medium bg-clip-text text-transparent bg-gradient-to-r from-agentia-teal-light to-agentia-green-light ">
             New: AI Agent Marketplace Launch 🚀
           </span>
         </div>
@@ -97,12 +97,7 @@ const Hero = () => {
         </div>
       </div>
       
-      {/* Scroll indicator */}
-      <div className="absolute bottom-10 left-0 right-0 flex justify-center animate-bounce">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 5L12 19M12 19L19 12M12 19L5 12" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
-      </div>
+    
     </section>
   );
 };
