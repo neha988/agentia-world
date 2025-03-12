@@ -61,6 +61,13 @@ const config: Config = {
           'teal-light': '#38BDF8',
           'green': '#10B981',
           'green-light': '#A7F3D0',
+		  'card': 'rgba(26, 26, 36, 0.7)',
+		  'card-hover': 'rgba(32, 32, 45, 0.8)',
+          'secondary': '#8b5cf6',
+
+
+
+
         },
         sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',

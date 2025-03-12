@@ -1,205 +1,140 @@
-"use client"
-import React, { useState, useEffect } from "react";
-import { ButtonCustom } from "./ui/button-custom";
-import { MessageSquare, Settings, Code } from "lucide-react";
+import ButtonCustom from './ui/button-custsection';
+import { MessageCircle, Sparkles, Cpu, Zap, Bot, Code } from 'lucide-react';
 
-const Customize = () => {
-  const [currentStep, setCurrentStep] = useState(1);
-  const totalSteps = 3;
-
-  // Auto-rotate through steps for demonstration
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentStep((prev) => (prev === totalSteps ? 1 : prev + 1));
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  const steps = [
-    {
-      title: "Describe Your Needs",
-      description: "Tell us about your business requirements and what you want your AI agent to accomplish.",
-      icon: <MessageSquare className="w-12 h-12 text-agentia-blue" />,
-    },
-    {
-      title: "Choose Capabilities",
-      description: "Select the specific features and capabilities you want your AI agent to have.",
-      icon: <Settings className="w-12 h-12 text-agentia-purple" />,
-    },
-    {
-      title: "Integration & Deploy",
-      description: "Our experts will build and deploy your custom AI agent to your systems.",
-      icon: <Code className="w-12 h-12 text-agentia-blue-light" />,
-    },
-  ];
-
+const CustomizeSection = () => {
   return (
-    <section className="py-24 bg-grid" id="customize">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16 max-w-3xl mx-auto">
-          <div className="flex justify-center">
-            <div className="inline-block glass-card px-4 py-2 rounded-full mb-4">
-              <span className="text-xs font-medium text-gradient-blue-purple">
-                Custom AI Solutions
-              </span>
-            </div>
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Create Your Perfect AI Assistant
-          </h2>
-          <p className="text-white/70">
-            Don't see exactly what you need? Our team of AI experts will build a custom AI agent tailored to your specific business requirements.
-          </p>
-        </div>
-
+    <section className="py-24 relative overflow-hidden bg-gradient-to-br from-agentia-dark to-black" id="customize">
+      <div className="absolute inset-0 dots-pattern opacity-5"></div>
+      
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="relative glass-card rounded-2xl overflow-hidden p-8 h-[500px] max-h-[500px]">
-            {/* Animated background elements */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-agentia-blue/10 rounded-full blur-[50px]"></div>
-            <div className="absolute bottom-0 left-0 w-64 h-64 bg-agentia-purple/10 rounded-full blur-[50px]"></div>
-            
-            <div className="relative z-10 h-full flex flex-col">
-              <h3 className="text-2xl font-bold text-white mb-8">Create Your Custom AI Agent</h3>
-              
-              {/* Progress steps */}
-              <div className="flex justify-between mb-8 relative">
-                <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-white/10 -translate-y-1/2 z-0"></div>
-                {[1, 2, 3].map((step) => (
-                  <div 
-                    key={step} 
-                    className={`w-10 h-10 rounded-full flex items-center justify-center z-10 transition-all duration-300 ${
-                      step === currentStep 
-                        ? "bg-gradient-to-r from-agentia-blue to-agentia-purple text-white" 
-                        : step < currentStep 
-                        ? "bg-agentia-blue text-white" 
-                        : "bg-white/10 text-white/50"
-                    }`}
-                  >
-                    {step}
+          <div className="order-2 lg:order-1">
+            <div className="relative bg-gradient-to-br from-agentia-dark to-black p-1 rounded-xl">
+              <div className="bg-gradient-to-br from-agentia-dark to-gray-900 p-6 rounded-lg">
+                <div className="mb-6">
+                  <div className="flex items-center">
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-agentia-teal-light to-agentia-green-light flex items-center justify-center mr-4">
+                      <Bot size={20} className="text-black" />
+                    </div>
+                    <div className="text-lg font-medium text-white">AI Assistant</div>
                   </div>
-                ))}
-              </div>
-              
-              {/* Current step content */}
-              <div className="flex-1 flex flex-col">
-                <div className="flex items-center mb-6">
-                  {steps[currentStep - 1].icon}
-                  <h4 className="text-xl font-bold text-white ml-4">{steps[currentStep - 1].title}</h4>
+                  <div className="mt-4 ml-14 p-3 bg-agentia-card rounded-lg">
+                    <p className="text-white/80 text-sm">
+                      Hello! I'm here to help you customize your perfect AI agent. What type of business problem are you trying to solve?
+                    </p>
+                  </div>
                 </div>
-                <p className="text-white/70 mb-8">{steps[currentStep - 1].description}</p>
                 
-                {currentStep === 1 && (
-                  <div className="flex-1 flex flex-col">
-                    <textarea 
-                      placeholder="Describe what you want your AI agent to do..."
-                      className="flex-1 p-4 glass-card rounded-xl bg-white/5 text-white placeholder-white/40 resize-none focus:outline-none focus:ring-1 focus:ring-agentia-purple/50 mb-6"
-                    ></textarea>
-                    <ButtonCustom variant="primary" size="md" className="self-end">
-                      Next Step
-                    </ButtonCustom>
-                  </div>
-                )}
-                
-                {currentStep === 2 && (
-                  <div className="flex-1 flex flex-col">
-                    <div className="glass-card bg-white/5 rounded-xl p-4 mb-6 flex-1 overflow-auto hide-scrollbar">
-                      {["Data Analysis", "Content Generation", "Customer Service", "Sales Support", "Email Management", "Calendar Scheduling", "Research Assistant", "Social Media Management"].map((capability) => (
-                        <div key={capability} className="flex items-center mb-4">
-                          <input type="checkbox" id={capability} className="w-4 h-4 accent-agentia-purple mr-3" />
-                          <label htmlFor={capability} className="text-white">{capability}</label>
-                        </div>
-                      ))}
-                    </div>
-                    <div className="flex justify-between">
-                      <ButtonCustom variant="ghost" size="md">
-                        Back
-                      </ButtonCustom>
-                      <ButtonCustom variant="primary" size="md">
-                        Next Step
-                      </ButtonCustom>
+                <div className="mb-6">
+                  <div className="flex items-center justify-end">
+                    <div className="text-lg font-medium mr-4 text-white ">You</div>
+                    <div className="w-10 h-10 rounded-full bg-agentia-teal flex items-center justify-center">
+                      <MessageCircle size={20} className="text-agentia-dark" />
                     </div>
                   </div>
-                )}
-                
-                {currentStep === 3 && (
-                  <div className="flex-1 flex flex-col">
-                    <div className="glass-card bg-white/5 rounded-xl p-4 mb-6 flex-1">
-                      <div className="text-white/70 mb-4">Select integration platforms:</div>
-                      <div className="grid grid-cols-2 gap-3">
-                        {["Slack", "Microsoft Teams", "Gmail", "Zapier", "Salesforce", "HubSpot"].map((platform) => (
-                          <div key={platform} className="flex items-center">
-                            <input type="checkbox" id={platform} className="w-4 h-4 accent-agentia-purple mr-3" />
-                            <label htmlFor={platform} className="text-white">{platform}</label>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                    <div className="flex justify-between">
-                      <ButtonCustom variant="ghost" size="md">
-                        Back
-                      </ButtonCustom>
-                      <ButtonCustom variant="primary" size="md">
-                        Submit Request
-                      </ButtonCustom>
-                    </div>
+                  <div className="mt-4 mr-14 p-3 bg-agentia-card rounded-lg">
+                    <p className="text-white/80 text-sm">
+                      I need an AI that can help analyze customer feedback data and generate insights for product improvements.
+                    </p>
                   </div>
-                )}
+                </div>
+                
+                <div className="mb-6">
+                  <div className="flex items-center">
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-agentia-teal-light to-agentia-green-light flex items-center justify-center mr-4">
+                      <Bot size={20} className="text-black" />
+                    </div>
+                    <div className="text-lg font-medium text-white">AI Assistant</div>
+                  </div>
+                  <div className="mt-4 ml-14 p-3 bg-agentia-card rounded-lg">
+                    <p className="text-white/80 text-sm">
+                      I recommend a Data Analysis AI with natural language processing capabilities to extract sentiment and key themes from customer feedback. Would you like to see some options?
+                    </p>
+                  </div>
+                </div>
+                
+                <div className="flex flex-col sm:flex-row gap-3 mt-8">
+                  <ButtonCustom variant="primary" size="sm" icon={<Sparkles size={16} />}>
+                    See Recommendations
+                  </ButtonCustom>
+                  <ButtonCustom variant="glass" size="sm" icon={<MessageCircle size={16} />}>
+                    Continue Chatting
+                  </ButtonCustom>
+                </div>
               </div>
+              
+              {/* Decorative elements */}
+              <div className="absolute -top-6 -right-6 w-24 h-24 bg-agentia-teal-light/20 rounded-full blur-xl"></div>
+              <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-agentia-secondary/20 rounded-full blur-xl"></div>
             </div>
           </div>
           
-          <div className="flex flex-col space-y-8">
-            <div className="glass-card rounded-xl p-6 animate-fade-in">
-              <h4 className="text-xl font-bold text-white mb-4">Expert Consultation</h4>
-              <p className="text-white/70 mb-4">
-                Schedule a free consultation with our AI experts to discuss your specific needs and get personalized recommendations.
-              </p>
-              <ButtonCustom 
-                variant="secondary" 
-                size="md" 
-                icon={<MessageSquare className="w-4 h-4" />}
-              >
-                Talk to an AI Expert
-              </ButtonCustom>
+          <div className="order-1 lg:order-2">
+          <div className="inline-block glass-card px-4 py-2 rounded-full animate-fade-in mb-4">
+          <span className="text-xs font-medium bg-clip-text text-transparent bg-gradient-to-r from-agentia-teal-light to-agentia-green-light">
+          AI Agent Customization
+          </span>
+        </div>
+            <h2 className="text-3xl md:text-4xl font-heading font-bold mb-6 text-white text-shadow">
+              Design Your <span className="text-gradient-teal-green">Perfect AI Agent</span>
+            </h2>
+            <p className="text-white/70 mb-8">
+              Don't see exactly what you need in our marketplace? Create a custom AI agent tailored to your specific business requirements through our interactive process.
+            </p>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+              <div className="flex p-4 glass-panel rounded-lg">
+                <div className="mr-4">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-agentia-teal-light to-agentia-green-light flex items-center justify-center">
+                    <Cpu size={20} className="text-black" />
+                  </div>
+                </div>
+                <div>
+                  <h3 className="text-lg font-medium mb-1 text-white">AI Consultation</h3>
+                  <p className="text-sm text-white/70">Get expert advice on the best AI solution for your needs</p>
+                </div>
+              </div>
+              
+              <div className="flex p-4 glass-panel rounded-lg">
+                <div className="mr-4">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-agentia-teal-light to-agentia-green-light flex items-center justify-center">
+                    <Code size={20} className="text-black" />
+                  </div>
+                </div>
+                <div>
+                  <h3 className="text-lg font-medium mb-1 text-white">Custom Development</h3>
+                  <p className="text-sm text-white/70">Tailored AI solutions built to your specifications</p>
+                </div>
+              </div>
+              
+              <div className="flex p-4 glass-panel rounded-lg">
+                <div className="mr-4">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-agentia-teal-light to-agentia-green-light flex items-center justify-center">
+                    <Zap size={20} className="text-black" />
+                  </div>
+                </div>
+                <div>
+                  <h3 className="text-lg font-medium mb-1 text-white">Quick Deployment</h3>
+                  <p className="text-sm text-white/70">Get your custom AI up and running in days, not months</p>
+                </div>
+              </div>
+              
+              <div className="flex p-4 glass-panel rounded-lg">
+                <div className="mr-4">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-agentia-teal-light to-agentia-green-light flex items-center justify-center">
+                    <Bot size={20} className="text-black" />
+                  </div>
+                </div>
+                <div>
+                  <h3 className="text-lg font-medium mb-1 text-white">Continuous Learning</h3>
+                  <p className="text-sm text-white/70">AI that improves with your business data over time</p>
+                </div>
+              </div>
             </div>
             
-            <div className="glass-card rounded-xl p-6 animate-fade-in" style={{animationDelay: '0.2s'}}>
-              <h4 className="text-xl font-bold text-white mb-4">Custom Development Process</h4>
-              <ul className="space-y-3 text-white/70 mb-4">
-                <li className="flex items-start">
-                  <span className="inline-block w-5 h-5 rounded-full bg-agentia-blue mr-3 flex-shrink-0 mt-0.5"></span>
-                  <span>Requirements gathering and analysis</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="inline-block w-5 h-5 rounded-full bg-agentia-blue mr-3 flex-shrink-0 mt-0.5"></span>
-                  <span>Solution design and architecture</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="inline-block w-5 h-5 rounded-full bg-agentia-blue mr-3 flex-shrink-0 mt-0.5"></span>
-                  <span>AI model training and fine-tuning</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="inline-block w-5 h-5 rounded-full bg-agentia-blue mr-3 flex-shrink-0 mt-0.5"></span>
-                  <span>Integration with your existing systems</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="inline-block w-5 h-5 rounded-full bg-agentia-blue mr-3 flex-shrink-0 mt-0.5"></span>
-                  <span>Testing and deployment</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="inline-block w-5 h-5 rounded-full bg-agentia-blue mr-3 flex-shrink-0 mt-0.5"></span>
-                  <span>Ongoing support and optimization</span>
-                </li>
-              </ul>
-            </div>
-            
-            <div className="glass-card rounded-xl p-6 bg-gradient-to-r from-agentia-blue/20 to-agentia-purple/20 animate-fade-in" style={{animationDelay: '0.4s'}}>
-              <h4 className="text-xl font-bold text-white mb-2">Fast Turnaround Time</h4>
-              <p className="text-white/70">
-                Get your custom AI agent built and deployed in as little as 2 weeks.
-              </p>
-            </div>
+            <ButtonCustom  variant="primary" size="lg" glowEffect icon={<MessageCircle size={18}  />}>
+              Talk to an AI Expert
+            </ButtonCustom>
           </div>
         </div>
       </div>
@@ -207,4 +142,4 @@ const Customize = () => {
   );
 };
 
-export default Customize;
+export default CustomizeSection;
