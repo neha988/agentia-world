@@ -322,9 +322,7 @@ const Hero = () => {
           </div>
         </motion.div>
 
-        <p className="text-white/80 text-lg mb-10 max-w-2xl">
-          Transform your business with AI that&apos;s ready to deploy.
-        </p>
+        
       </div>
     </section>
   );
