@@ -1,7 +1,9 @@
 "use client"
 import React from "react";
 import { ButtonCustom } from "./ui/button-custom";
-import { Star, MessageSquare } from "lucide-react";
+import { Star, MessageSquare, Award, Target, Users, CheckCircle2 } from "lucide-react";
+import { motion } from "framer-motion";
+import Image from "next/image";
 
 // Mock data for AI Experts
 const experts = [
@@ -76,16 +78,20 @@ const Experts = () => {
             >
               <div className="relative">
                 <div className="h-48 overflow-hidden">
-                  <img 
+                  <Image 
                     src={expert.image} 
                     alt={expert.name} 
+                    width={500}
+                    height={500}
                     className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-110"
                   />
                 </div>
                 <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 w-16 h-16 rounded-full overflow-hidden border-4 border-agentia-dark-800">
-                  <img 
+                  <Image 
                     src={expert.image} 
                     alt={expert.name} 
+                    width={64}
+                    height={64}
                     className="w-full h-full object-cover object-center"
                   />
                 </div>

@@ -24,7 +24,7 @@ const CallToAction = () => {
             </h2>
             
             <p className="text-white/80 text-lg mb-10 max-w-2xl">
-              Whether you're looking to buy AI agents, create custom solutions, or join as an AI expert, Agentia has everything you need to succeed in the AI-powered future.
+              Whether you&apos;re looking to buy AI agents, create custom solutions, or join as an AI expert, Agentia has everything you need to succeed in the AI-powered future.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4">

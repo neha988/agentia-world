@@ -20,7 +20,7 @@ const CustomizeSection = () => {
                   </div>
                   <div className="mt-4 ml-14 p-3 bg-agentia-card rounded-lg">
                     <p className="text-white/80 text-sm">
-                      Hello! I'm here to help you customize your perfect AI agent. What type of business problem are you trying to solve?
+                      Hello! I&apos;m here to help you customize your perfect AI agent. What type of business problem are you trying to solve?
                     </p>
                   </div>
                 </div>
@@ -79,7 +79,7 @@ const CustomizeSection = () => {
               Design Your <span className="text-gradient-teal-green">Perfect AI Agent</span>
             </h2>
             <p className="text-white/70 mb-8">
-              Don't see exactly what you need in our marketplace? Create a custom AI agent tailored to your specific business requirements through our interactive process.
+              Don&apos;t see exactly what you need in our marketplace? Create a custom AI agent tailored to your specific business requirements through our interactive process.
             </p>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
