@@ -241,7 +241,7 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
-          Discover the world's first marketplace for intelligent AI agents. Transform your workflow, automate tasks, and scale your business with cutting-edge AI solutions.
+          Discover the world&apos;s first marketplace for intelligent AI agents. Transform your workflow, automate tasks, and scale your business with cutting-edge AI solutions.
         </motion.p>
         
         <motion.div 

@@ -1,8 +1,7 @@
 "use client"
 import React from "react";
 import { ButtonCustom } from "./ui/button-custom";
-import { Star, MessageSquare, Award, Target, Users, CheckCircle2 } from "lucide-react";
-import { motion } from "framer-motion";
+import { Star, MessageSquare } from "lucide-react";
 import Image from "next/image";
 
 // Mock data for AI Experts
