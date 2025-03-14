@@ -1,8 +1,7 @@
 "use client"
 import React, { useState, useEffect } from "react";
-import Link from "next/link";
 import { ButtonCustom } from "./ui/button-custom";
-import { Menu, X, ChevronDown, Sparkles, Layout, Zap, Star } from "lucide-react";
+import { Menu, X, ChevronDown, Sparkles, Layout, Zap } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar = () => {

@@ -4,6 +4,7 @@ import { ButtonCustom } from "./ui/button-custom";
 import { Search, Star, ChevronDown, ArrowRight } from "lucide-react";
 import { Listbox } from "@headlessui/react";
 import { HoverBorderGradient } from "./ui/border-button";
+import Image from "next/image";
 
 
 // Mock data for AI Agents
@@ -162,16 +163,14 @@ const Marketplace = () => {
               key={agent.id} 
               className="glass-card rounded-xl overflow-hidden group transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-agentia-purple/10"
             >
-              <div className="h-48 overflow-hidden relative">
-                <img 
+              <div className="relative h-48 overflow-hidden rounded-t-xl">
+                <Image 
                   src={agent.image} 
-                  alt={agent.name} 
-                  className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-110"
+                  alt={agent.name}
+                  width={500}
+                  height={500}
+                  className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-agentia-dark to-transparent opacity-60"></div>
-                <div className="absolute bottom-4 left-4 glass px-2 py-1 rounded-md text-xs font-medium text-white">
-                  {agent.category}
-                </div>
               </div>
               <div className="p-6">
                 <div className="flex justify-between items-start mb-2">
