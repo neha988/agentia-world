@@ -12,7 +12,7 @@ const Footer = () => {
               <span className="text-xl sm:text-2xl font-bold font-space text-white">Agentia<span className="text-gradient-teal-green"> World</span></span>
             </Link>
             <p className="text-sm sm:text-base text-white/70 mb-6 max-w-md">
-              The world's leading marketplace for AI agents. Buy, sell, and customize AI solutions to transform your business.
+              The worlds leading marketplace for AI agents. Buy&apos; sell&apos; and customize AI solutions to transform your business.
             </p>
             <div className="flex space-x-2 ">
               <FloatingDock 

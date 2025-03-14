@@ -34,10 +34,15 @@ export const AnimatedTestimonials = ({
   };
 
   useEffect(() => {
+    let interval: NodeJS.Timeout;
     if (autoplay) {
-      const interval = setInterval(handleNext, 5000);
-      return () => clearInterval(interval);
+      interval = setInterval(handleNext, 5000);
     }
+    return () => {
+      if (interval) {
+        clearInterval(interval);
+      }
+    };
   }, [autoplay, handleNext]);
 
   const randomRotateY = () => {

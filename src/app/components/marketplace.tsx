@@ -2,10 +2,8 @@
 import React, { useState } from "react";
 import { ButtonCustom } from "./ui/button-custom";
 import { Search, Star, ChevronDown, ArrowRight } from "lucide-react";
-import { Listbox } from "@headlessui/react";
 import { HoverBorderGradient } from "./ui/border-button";
 import Image from "next/image";
-
 
 // Mock data for AI Agents
 const agents = [
@@ -149,10 +147,6 @@ const Marketplace = () => {
     ))}
   </div>
 </div>
-
-
-
-
 
           </div>
         </div>
