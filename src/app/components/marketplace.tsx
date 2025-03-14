@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { ButtonCustom } from "./ui/button-custom";
 import { Search, Star, ChevronDown, ArrowRight } from "lucide-react";
 import { Listbox } from "@headlessui/react";
+import { HoverBorderGradient } from "./ui/border-button";
 
 
 // Mock data for AI Agents
@@ -192,10 +193,10 @@ const Marketplace = () => {
           ))}
         </div>
 
-        <div className="mt-12 text-center">
-          <ButtonCustom variant="outline" size="md">
+        <div className="mt-12 flex px-5">
+          <HoverBorderGradient>
             View All AI Agents
-          </ButtonCustom>
+          </HoverBorderGradient>
         </div>
       </div>
     </section>

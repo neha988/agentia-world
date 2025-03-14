@@ -12,8 +12,6 @@ type Testimonial = {
   src: string;
 };
 
-
-
 export const AnimatedTestimonials = ({
   testimonials,
   autoplay = false,
@@ -45,20 +43,20 @@ export const AnimatedTestimonials = ({
   const randomRotateY = () => {
     return Math.floor(Math.random() * 21) - 10;
   };
+
   return (
-    <div className="max-w-sm md:max-w-4xl mx-auto antialiased font-sans px-4 md:px-8 lg:px-12 py-20">
-      
-     <div className="text-center mb-10">
-     <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            What Our <span className="text-gradient-teal-green">Customers</span> Say
-          </h2>
-          <p className="text-white/70">
-            Discover how businesses are transforming <span className="text-gradient-teal-green">their operations</span> with our AI agents.
-          </p>
-     </div>
-      <div className="relative grid grid-cols-1 md:grid-cols-2  gap-20">
+    <div className="relative max-w-sm md:max-w-4xl mx-auto antialiased font-sans px-4 md:px-8 lg:px-12 py-20" id="testimonials">
+      <div className="text-center mb-10">
+        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          What Our <span className="text-gradient-teal-green">Customers</span> Say
+        </h2>
+        <p className="text-white/70">
+          Discover how businesses are transforming <span className="text-gradient-teal-green">their operations</span> with our AI agents.
+        </p>
+      </div>
+      <div className="relative grid grid-cols-1 md:grid-cols-2 gap-20" style={{zIndex: 1}}>
         <div>
-          <div className="relative h-80 w-full">
+          <div className="relative h-80 w-full" style={{zIndex: 1}}>
             <AnimatePresence>
               {testimonials.map((testimonial, index) => (
                 <motion.div
